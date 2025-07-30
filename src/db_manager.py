@@ -21,12 +21,12 @@ class DBManager:
         Initializes the database connection and ensures all necessary tables exist.
         Uses relative paths for better project portability.
         """
-        # 使用相对路径，更友好的项目移植性
+        # Use relative paths for better project portability
         if os.path.isabs(db_path):
-            # 如果传入绝对路径，转换为相对路径
+            # If an absolute path is passed, convert it to a relative path
             db_abs_path = db_path
         else:
-            # 相对于当前工作目录
+            # Relative to the current working directory
             db_abs_path = os.path.join(os.getcwd(), db_path)
         
         db_dir = os.path.dirname(db_abs_path)
@@ -85,14 +85,14 @@ class DBManager:
         Enhanced for better portability.
         """
         if os.path.isabs(path):
-            # 尝试获取相对于当前工作目录的相对路径
+            # Try to get a relative path from the current working directory
             try:
                 return os.path.relpath(path, os.getcwd())
             except ValueError:
-                # 如果在不同驱动器上（Windows），返回原路径
+                # If on different drives (Windows), return the original path
                 return path
         else:
-            # 已经是相对路径，直接返回
+            # Already a relative path, return directly
             return path
 
     def _abs(self, rel_path: str) -> str:
@@ -104,10 +104,10 @@ class DBManager:
             return ""
         
         if os.path.isabs(rel_path):
-            # 已经是绝对路径，直接返回
+            # Already an absolute path, return directly
             return rel_path
         else:
-            # 相对路径，转换为绝对路径
+            # Relative path, convert to absolute
             return os.path.abspath(os.path.join(os.getcwd(), rel_path))
 
     # Model registration and basic info

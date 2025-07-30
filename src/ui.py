@@ -805,9 +805,9 @@ def build_app_interface(selected_lang: str = "en"):
                 # Inference playground
                 gr.Markdown(f"### {T['compare_inference_playground']}")
                 
-                # 为左右两个模型分别设置参数
+                # Set parameters for the left and right models separately
                 with gr.Row():
-                    # 左侧模型参数
+                    # Left model parameters
                     with gr.Column():
                         gr.Markdown(f"**⚙️ Model 1**")
                         with gr.Row():
@@ -827,7 +827,7 @@ def build_app_interface(selected_lang: str = "en"):
                             comp_left_seed = gr.Number(label=T["inf_seed"], 
                                                      value=DEFAULT_CONFIG["inference"]["seed"])
                 
-                    # 右侧模型参数
+                    # Right model parameters
                     with gr.Column():
                         gr.Markdown(f"**⚙️ Model 2**")
                         with gr.Row():
@@ -902,7 +902,7 @@ def build_app_interface(selected_lang: str = "en"):
                     f"train_size = {info['train_size']}" +
                     (f"\nval_size = {info['val_size']}" if 'val_size' in info else "\n(no val)")
                 )
-                # 同时更新主下拉框和对比页面的两个下拉框
+                # Update the main dropdown and the two dropdowns on the comparison page simultaneously
                 return msg, gr.update(choices=new_choices, value=new_val), gr.update(choices=new_choices), gr.update(choices=new_choices)
             except Exception as e:
                 return f"❌ Error: {str(e)}", gr.update(), gr.update(), gr.update()
@@ -923,8 +923,8 @@ def build_app_interface(selected_lang: str = "en"):
         def update_lr_scheduler_params(scheduler_type):
             defaults_train = DEFAULT_CONFIG["training"]
             
-            # 初始化所有组件为非交互状态，视觉上显示为空白（但实际值保留为默认值）
-            # 注意：这里使用空字符串作为显示值，但实际值会保留在后端，懒得改接口了。
+            # Initialize all components to a non-interactive state, visually appearing blank (but retaining default values).
+            # Note: An empty string is used as the display value here, but the actual value is retained in the backend.
             warmup_update = gr.update(interactive=False, value="") 
             lr_decay_update = gr.update(interactive=False, value="")
             min_lr_update = gr.update(interactive=False, value="")
@@ -933,9 +933,9 @@ def build_app_interface(selected_lang: str = "en"):
             polynomial_power_update = gr.update(interactive=False, value="")
             
             if scheduler_type == "none":
-                pass # 所有参数保持非交互状态
+                pass # All parameters remain non-interactive
             elif scheduler_type == "cosine":
-                # 启用相关参数并设置其值
+                # Enable relevant parameters and set their values
                 warmup_update = gr.update(interactive=True, value=defaults_train["warmup_iters"])
                 lr_decay_update = gr.update(interactive=True, value=defaults_train["lr_decay_iters"])
                 min_lr_update = gr.update(interactive=True, value=defaults_train["min_lr"])
@@ -1309,15 +1309,15 @@ def build_app_interface(selected_lang: str = "en"):
             d_train = DEFAULT_CONFIG["training"]
             d_inf = DEFAULT_CONFIG["inference"]
             
-            # 获取默认学习率调度器类型的相关组件状态
+            # Get the state of related components for the default learning rate scheduler type
             default_scheduler = d_train["lr_scheduler_type"]
             warmup_update, lr_decay_update, min_lr_update, step_size_update, step_gamma_update, polynomial_power_update = update_lr_scheduler_params(default_scheduler)
             
-            # 获取默认自注意力参数状态
+            # Get the default self-attention parameter state
             default_use_self_attention = d_train["use_self_attention"]
             self_attn_updates = update_self_attention_params(default_use_self_attention)
             
-            # 原始的返回值
+            # Original return values
             base_updates = [
                 _b(True), _d("new_model"),      # new_model_chk, model_name_box
                 _d(), _d(),                     # data_dir_box (train), out_dir_box (train)
@@ -1331,8 +1331,8 @@ def build_app_interface(selected_lang: str = "en"):
                 _d(d_train["dropout"]), _b(d_train["bias"]),
                 _d(d_train["learning_rate"]), _d(d_train["max_iters"]), _d(d_train["weight_decay"]),
                 _d(d_train["beta1"]), _d(d_train["beta2"]),
-                _d(d_train["lr_scheduler_type"]), # 设置默认学习率调度器类型
-                # 使用update_lr_scheduler_params的返回值而不是直接设置
+                _d(d_train["lr_scheduler_type"]), # Set the default learning rate scheduler type
+                # Use the return value of update_lr_scheduler_params instead of setting directly
                 warmup_update,  # warmup_box
                 lr_decay_update, # lr_decay_box
                 min_lr_update,  # min_lr_box
@@ -1376,7 +1376,7 @@ def build_app_interface(selected_lang: str = "en"):
                 ""                 # inf_output
             ]
             
-            # 对比页面组件的重置
+            # Resetting components on the comparison page
             comparison_updates = [
                 gr.update(), # comp_left_model
                 gr.update(), # comp_right_model
@@ -1386,14 +1386,14 @@ def build_app_interface(selected_lang: str = "en"):
                 gr.update(), # comp_right_plot
                 gr.update(), # comp_left_history
                 gr.update(), # comp_right_history
-                # 左侧模型参数
+                # Left model parameters
                 _d(d_inf["num_samples"]), # comp_left_num_samples
                 _d(d_inf["max_new_tokens"]), # comp_left_max_tokens
                 _d(d_inf["temperature"]), # comp_left_temperature
                 _d(d_inf["top_k"]), # comp_left_top_k
                 _d(d_inf["dtype"]), # comp_left_dtype
                 _d(d_inf["seed"]), # comp_left_seed
-                # 右侧模型参数
+                # Right model parameters
                 _d(d_inf["num_samples"]), # comp_right_num_samples
                 _d(d_inf["max_new_tokens"]), # comp_right_max_tokens
                 _d(d_inf["temperature"]), # comp_right_temperature
@@ -1401,7 +1401,7 @@ def build_app_interface(selected_lang: str = "en"):
                 _d(d_inf["dtype"]), # comp_right_dtype
                 _d(d_inf["seed"]), # comp_right_seed
                 _d(d_inf["prompt"]), # comp_prompt
-                gr.update(), # comp_generate_btn (不重置)
+                gr.update(), # comp_generate_btn (do not reset)
                 gr.update(value=""), # comp_left_output
                 gr.update(value=""), # comp_right_output
                 # Hidden comparison fields
@@ -1426,15 +1426,15 @@ def build_app_interface(selected_lang: str = "en"):
             info = dbm.get_model_basic_info(mid) or {}
             name = info.get("name", "unknown_model") # Default name
 
-            # 使用相对路径处理，提高项目移植性
+            # Handle relative paths to improve project portability
             if "dir_path" in info:
-                # 数据库中存储的是相对路径，可以直接使用
+                # The database stores relative paths, which can be used directly
                 out_dir_root = info["dir_path"]
-                # 从存储的路径中提取文件夹名用于数据目录
+                # Extract the folder name from the stored path for the data directory
                 folder = os.path.basename(out_dir_root)
                 data_processed_dir = os.path.join("data", folder, "processed")
             else:
-                # 兼容性处理：如果没有dir_path，使用传统方式
+                # Compatibility handling: if there is no dir_path, use the traditional method
                 folder_name_part = "".join(c if c.isalnum() or c in ['_','-'] else '_' for c in name)
                 folder = f"{folder_name_part}_{mid}"
                 data_processed_dir = os.path.join("data", folder, "processed")
@@ -1478,17 +1478,17 @@ def build_app_interface(selected_lang: str = "en"):
 
             inference_history = dbm.get_inference_history(mid) or ""
             
-            # 获取模型的学习率调度器类型
+            # Get the model's learning rate scheduler type
             scheduler_type = _cfg("lr_scheduler_type", d_train_defaults["lr_scheduler_type"])
             
-            # 根据学习率调度器类型更新相关组件状态
+            # Update the state of related components based on the learning rate scheduler type
             warmup_update, lr_decay_update, min_lr_update, step_size_update, step_gamma_update, polynomial_power_update = update_lr_scheduler_params(scheduler_type)
             
-            # 获取模型的自注意力使用状态并更新相关组件
+            # Get the model's self-attention usage state and update related components
             use_self_attention = _cfg("use_self_attention", d_train_defaults["use_self_attention"])
             self_attn_updates = update_self_attention_params(use_self_attention)
             
-            # 基本组件更新列表
+            # List of basic component updates
             base_updates = [
                 gr.update(value=False),  # new_model_chk
                 gr.update(value=name),   # model_name_box
@@ -1512,8 +1512,8 @@ def build_app_interface(selected_lang: str = "en"):
                 gr.update(value=_cfg("weight_decay", d_train_defaults["weight_decay"])),
                 gr.update(value=_cfg("beta1", d_train_defaults["beta1"])),
                 gr.update(value=_cfg("beta2", d_train_defaults["beta2"])),
-                gr.update(value=scheduler_type), # 设置学习率调度器类型
-                # 根据学习率调度器类型，设置相关组件的值和交互状态
+                gr.update(value=scheduler_type), # Set the learning rate scheduler type
+                # Set the values and interactivity of related components based on the scheduler type
                 warmup_update,  # warmup_box
                 lr_decay_update, # lr_decay_box
                 min_lr_update,  # min_lr_box
@@ -1559,11 +1559,11 @@ def build_app_interface(selected_lang: str = "en"):
                 gr.update(value=_ic("dtype", d_inf_defaults["dtype"])), # dtype_box_inf
                 gr.update(value=_ic("device", d_inf_defaults["device"])), # device_box_inf
                 gr.update(value=_ic("seed", d_inf_defaults["seed"])), # seed_box_inf
-                gr.update(), # inf_btn (添加缺失的组件)
+                gr.update(), # inf_btn (add missing component)
                 inference_history # inf_output
             ]
             
-            # 对比页面组件更新，但不直接更新左右模型选择框，自选
+            # Comparison page component updates, but do not directly update left/right model selections
             comparison_updates = [
                 gr.update(), # comp_left_model
                 gr.update(), # comp_right_model
@@ -1573,14 +1573,14 @@ def build_app_interface(selected_lang: str = "en"):
                 gr.update(), # comp_right_plot
                 gr.update(), # comp_left_history
                 gr.update(), # comp_right_history
-                # 左侧模型参数
+                # Left model parameters
                 gr.update(value=_ic("num_samples", d_inf_defaults["num_samples"])), # comp_left_num_samples
                 gr.update(value=_ic("max_new_tokens", d_inf_defaults["max_new_tokens"])), # comp_left_max_tokens
                 gr.update(value=_ic("temperature", d_inf_defaults["temperature"])), # comp_left_temperature
                 gr.update(value=_ic("top_k", d_inf_defaults["top_k"])), # comp_left_top_k
                 gr.update(value=_ic("dtype", d_inf_defaults["dtype"])), # comp_left_dtype
                 gr.update(value=_ic("seed", d_inf_defaults["seed"])), # comp_left_seed
-                # 右侧模型参数
+                # Right model parameters
                 gr.update(value=_ic("num_samples", d_inf_defaults["num_samples"])), # comp_right_num_samples
                 gr.update(value=_ic("max_new_tokens", d_inf_defaults["max_new_tokens"])), # comp_right_max_tokens
                 gr.update(value=_ic("temperature", d_inf_defaults["temperature"])), # comp_right_temperature
@@ -1656,20 +1656,20 @@ def build_app_interface(selected_lang: str = "en"):
                 except Exception as e:
                     print(f"Error deleting model: {e}") # Log error
             
-            # 获取更新后的模型列表
+            # Get the updated list of models
             updated_choices = _get_model_choices_list()
             
-            # 更新主下拉框和对比页面的两个下拉框
+            # Update the main dropdown and the two dropdowns on the comparison page
             main_dropdown_update = gr.update(choices=updated_choices, value=None)
             comp_left_update = gr.update(choices=updated_choices, value=None)
             comp_right_update = gr.update(choices=updated_choices, value=None)
             
-            # 重置所有组件为默认值
+            # Reset all components to their default values
             reset_values = _reset_updates()
             
-            # 额外清空对比页面特定的内容（在reset_updates基础上进一步确保清空）
-            # 找到对比页面组件在reset_values中的位置并确保它们被清空
-            # 由于_reset_updates已经处理了大部分重置，我们只需要确保对比页面的特殊组件被清空
+            # Additionally clear specific content on the comparison page (ensuring it's cleared on top of reset_updates)
+            # Find the position of comparison page components in reset_values and ensure they are cleared
+            # Since _reset_updates handles most of the reset, we just need to ensure special components on the comparison page are cleared
             
             return [main_dropdown_update, comp_left_update, comp_right_update] + reset_values
 
@@ -1677,7 +1677,7 @@ def build_app_interface(selected_lang: str = "en"):
         delete_model_btn.click(
             fn=delete_model_cb,
             inputs=[model_dropdown],
-            # 更新输出列表，包括主下拉框和对比页面的两个下拉框，然后是其他重置组件
+            # Update the output list to include the main dropdown, the two dropdowns on the comparison page, and then the other reset components
             outputs=[model_dropdown, comp_left_model, comp_right_model] + outputs_for_model_select_and_delete 
         )
 
@@ -1829,7 +1829,7 @@ def build_app_interface(selected_lang: str = "en"):
             queue=False
         )
         
-        # 手动切换学习率调度器类型时也更新相关组件
+        # Also update related components when manually switching the learning rate scheduler type
         lr_scheduler_box.change(
             fn=update_lr_scheduler_params,
             inputs=[lr_scheduler_box],
@@ -1861,15 +1861,15 @@ def build_app_interface(selected_lang: str = "en"):
             info = dbm.get_model_basic_info(mid) or {}
             name = info.get("name", "unknown_model")
             
-            # 使用相对路径处理，提高项目移植性
+        # Handle relative paths to improve project portability
             if "dir_path" in info:
-                # 数据库中存储的是相对路径，可以直接使用
+            # The database stores relative paths, which can be used directly
                 out_dir_root = info["dir_path"]
-                # 从存储的路径中提取文件夹名用于数据目录
+            # Extract the folder name from the stored path for the data directory
                 folder = os.path.basename(out_dir_root)
                 data_processed_dir = os.path.join("data", folder, "processed")
             else:
-                # 兼容性处理：如果没有dir_path，使用传统方式
+            # Compatibility handling: if there is no dir_path, use the traditional method
                 folder_name_part = "".join(c if c.isalnum() or c in ['_','-'] else '_' for c in name)
                 folder = f"{folder_name_part}_{mid}"
                 data_processed_dir = os.path.join("data", folder, "processed")
