@@ -1,4 +1,4 @@
-[**English**](https://github.com/ystemsrx/mini-nanoGPT) | [简体中文](README.zh.md)
+[**English**](https://github.com/ystemsrx/mini-nanoGPT) | [简体中文](README.zh.md) | [Français](README.fr.md)
 
 # Mini NanoGPT 🚀
 
@@ -61,12 +61,27 @@ Once started, visit http://localhost:7860 to access the application.
 
 ### Option 2: Local Installation
 
+First, create a virtual environment with a Python version up to 3.12. This is necessary due to `torch` 2.0 compatibility.
+
+**Using bash:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Using PowerShell:**
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+Once the virtual environment is activated, install the dependencies:
 ```bash
 # Clone the repository
 git clone --depth 1 https://github.com/ystemsrx/mini-nanoGPT.git
 cd mini-nanogpt
 
-# Install dependencies (Python 3.7+)
+# Install dependencies
 pip install -r requirements.txt
 ```
 

@@ -391,7 +391,7 @@ def generate_loss_chart_html(
 """
     return html_content
 
-def build_app_interface(selected_lang: str = "zh"):
+def build_app_interface(selected_lang: str = "en"):
     """
     Top-level UI function
     Implemented:
