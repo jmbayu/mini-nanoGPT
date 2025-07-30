@@ -23,7 +23,7 @@ You can train a model through an intuitive graphical interface!
 ### 1. Easy to Use
 
 * 📱 **Visual Interface**: Say goodbye to command line; point-and-click to start training
-* 🌍 **Bilingual UI**: Full support for both English and Chinese interfaces
+* 🌍 **Bilingual UI**: Full support for both English and French interfaces
 * 🎯 **One-click Operations**: Data preprocessing, training, and text generation — all in one click
 
 ### 2. Powerful Features
