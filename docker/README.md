@@ -1,4 +1,4 @@
-[English](README.md) | [简体中文](README.zh.md)
+[English](README.md) | [Francais](README.fr.md)
 
 The files in this directory are used for running and initializing in containers.
 
