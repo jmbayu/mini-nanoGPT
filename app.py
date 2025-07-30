@@ -8,7 +8,7 @@ Based on karpathy/nanoGPT with a GUI and extended features that make GPT model t
 - 🎨 Real-time training visualization and logging
 - 🔧 Character-level and Qwen/GPT-2 tokenizer support
 - 💾 Checkpoint resume and model evaluation
-- 🌏 Multi-language interface (English/Chinese)
+- 🌏 Multi-language interface (English/French)
 - 📊 Rich learning rate scheduling options
 - 🎛️ Visual configuration for all parameters, no code editing needed
 
