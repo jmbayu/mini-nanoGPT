@@ -1,4 +1,4 @@
-[**English**](https://github.com/ystemsrx/mini-nanoGPT) | [简体中文](README.zh.md) | [Français](README.fr.md)
+[**English**](https://github.com/jmbayu/mini-nanoGPT) | [Français](README.fr.md)
 
 # Mini NanoGPT 🚀
 
@@ -18,7 +18,6 @@ Ou simplement curieux des grands modèles de langage et que vous vouliez expéri
 
 Vous pouvez entraîner un modèle via une interface graphique intuitive !
 
-> Pour la version originale de Mini NanoGPT (qui n'est plus mise à jour), veuillez consulter la branche [**old**](https://github.com/ystemsrx/mini-nanoGPT/tree/old).
 
 ## ✨ Fonctionnalités clés
 
@@ -44,7 +43,7 @@ Le moyen le plus simple de commencer !
 
 ```bash
 # Cloner le dépôt
-git clone --depth 1 https://github.com/ystemsrx/mini-nanoGPT.git
+git clone --depth 1 https://github.com/jmbayu/mini-nanoGPT.git
 cd mini-nanogpt
 
 # Démarrer avec Docker Compose (recommandé)
@@ -78,7 +77,7 @@ python -m venv .venv
 Une fois l'environnement virtuel activé, installez les dépendances :
 ```bash
 # Cloner le dépôt
-git clone --depth 1 https://github.com/ystemsrx/mini-nanoGPT.git
+git clone --depth 1 https://github.com/jmbayu/mini-nanoGPT.git
 cd mini-nanogpt
 
 # Installer les dépendances
@@ -103,7 +102,7 @@ Ouvrez le lien affiché dans votre navigateur (généralement [http://localhost:
 
 Voici un petit exemple pour la démonstration :
 
-![Traitement des données](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_data_process.png?raw=true)
+![Traitement des données](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_data_process.png?raw=true)
 
 ### Étape 2 : Entraîner le modèle
 
@@ -119,7 +118,7 @@ Voici un petit exemple pour la démonstration :
 * Vous devriez maintenant voir les deux courbes de perte se mettre à jour dynamiquement.
 * Cliquez sur "Démarrer l'entraînement" et attendez la fin de l'entraînement.
 
-![Entraînement](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_train.png?raw=true)
+![Entraînement](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_train.png?raw=true)
 
 #### Mode évaluation uniquement ?
 
@@ -131,7 +130,7 @@ Voici un petit exemple pour la démonstration :
 2. Entrez une invite
 3. Cliquez sur "Générer" et voyez ce que le modèle propose !
 
-![Inférence](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_inference.png?raw=true)
+![Inférence](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_inference.png?raw=true)
 
 ### Étape 4 : Comparaison de modèles
 
@@ -141,7 +140,7 @@ Voici un petit exemple pour la démonstration :
 4. Vous pouvez entrer la même invite et voir comment les deux modèles génèrent du texte
 5. Ou, appliquez différents paramètres d'inférence (température, top_k, etc.) pour comparer les sorties
 
-![Comparaison](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_comparison.png?raw=true)
+![Comparaison](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_comparison.png?raw=true)
 
 ## 📁 Structure du projet
 

@@ -28,6 +28,7 @@ wheels/
 venv/
 env/
 ENV/
+.venv
 
 # IDE
 .vscode/
@@ -56,6 +57,6 @@ docker-compose.yml
 
 # Documentation
 README.md
-README.zh.md
+README.fr.md
 LICENSE
 assets/imgs/

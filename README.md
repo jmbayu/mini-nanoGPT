@@ -1,4 +1,4 @@
-[**English**](https://github.com/ystemsrx/mini-nanoGPT) | [简体中文](README.zh.md) | [Français](README.fr.md)
+[**English**](https://github.com/jmbayu/mini-nanoGPT) | [Français](README.fr.md)
 
 # Mini NanoGPT 🚀
 
@@ -17,8 +17,6 @@ Mini-NanoGPT is a tool that helps you get started with training GPT models effor
 Or simply curious about large language models and want to experience their magic,
 
 You can train a model through an intuitive graphical interface!
-
-> For the original version of Mini NanoGPT (no longer updated), please check out the [**old** branch](https://github.com/ystemsrx/mini-nanoGPT/tree/old).
 
 ## ✨ Key Features
 
@@ -44,7 +42,7 @@ The easiest way to get started!
 
 ```bash
 # Clone the repository
-git clone --depth 1 https://github.com/ystemsrx/mini-nanoGPT.git
+git clone --depth 1 https://github.com/jmbayu/mini-nanoGPT.git
 cd mini-nanogpt
 
 # Start with Docker Compose (recommended)
@@ -78,7 +76,7 @@ python -m venv .venv
 Once the virtual environment is activated, install the dependencies:
 ```bash
 # Clone the repository
-git clone --depth 1 https://github.com/ystemsrx/mini-nanoGPT.git
+git clone --depth 1 https://github.com/jmbayu/mini-nanoGPT.git
 cd mini-nanogpt
 
 # Install dependencies
@@ -103,7 +101,7 @@ Open the displayed link in your browser (usually [http://localhost:7860](http://
 
 Here's a small example for demonstration:
 
-![Data Processing](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_data_process.png?raw=true)
+![Data Processing](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_data_process.png?raw=true)
 
 ### Step 2: Train the Model
 
@@ -119,7 +117,7 @@ Here's a small example for demonstration:
 * You should now see both loss curves updating dynamically.
 * Click "Start Training" and wait for training to complete.
 
-![Training](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_train.png?raw=true)
+![Training](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_train.png?raw=true)
 
 #### Evaluation Mode Only?
 
@@ -131,7 +129,7 @@ Here's a small example for demonstration:
 2. Enter a prompt
 3. Click "Generate" and see what the model comes up with!
 
-![Inference](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_inference.png?raw=true)
+![Inference](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_inference.png?raw=true)
 
 ### Step 4: Model Comparison
 
@@ -141,7 +139,7 @@ Here's a small example for demonstration:
 4. You can input the same prompt and see how both models generate text
 5. Or, apply different inference settings (temperature, top\_k, etc.) to compare outputs
 
-![Comparison](https://github.com/ystemsrx/mini-nanoGPT/blob/master/assets/imgs/en_comparison.png?raw=true)
+![Comparison](https://github.com/jmbayu/mini-nanoGPT/blob/master/assets/imgs/en_comparison.png?raw=true)
 
 ## 📁 Project Structure
 
