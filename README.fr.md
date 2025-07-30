@@ -24,7 +24,7 @@ Vous pouvez entraîner un modèle via une interface graphique intuitive !
 ### 1. Facile à utiliser
 
 * 📱 **Interface visuelle** : Dites adieu à la ligne de commande ; cliquez pour commencer l'entraînement
-* 🌍 **Interface utilisateur bilingue** : Prise en charge complète des interfaces en anglais et en chinois
+* 🌍 **Interface utilisateur bilingue** : Prise en charge complète des interfaces en anglais et en francais
 * 🎯 **Opérations en un clic** : Prétraitement des données, entraînement et génération de texte — le tout en un seul clic
 
 ### 2. Fonctionnalités puissantes
